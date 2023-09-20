@@ -5,6 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-
+<div th:each="post : ${posts}">
+    <h2 th:text="${post.title}"></h2>
+    <p th:text="${post.body}"></p>
+    <a th:href="@{|/posts/${post.id}|}">More Details</a>
+</div>
 </body>
 </html>

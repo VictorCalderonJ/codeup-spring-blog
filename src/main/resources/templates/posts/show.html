@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
+<!--<head th:replace="partials/partials :: head('Post Details')"></head>-->
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>View</title>
+
 </head>
 <body>
-
+<div id="wrapper">
+    <main class="container">
+        <p>Test</p>
+        <p th:text="${blogpost.body}"></p>
+        <p th:text="${blogpost.user.email}"></p>
+    </main>
+</div>
 </body>
-</html>
