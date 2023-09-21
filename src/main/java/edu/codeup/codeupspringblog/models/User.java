@@ -26,6 +26,14 @@ public class User {
 
     private List<Post> posts;
 
+    public User(User copy) {
+        id = copy.id;
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+        posts = copy.posts;
+    }
+
 
     public User(long id, String username, String email, String password) {
         this.id = id;
