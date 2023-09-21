@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-  <title>T</title>
-</head>
+<head th:replace="partials/header :: head"></head>
+
 <body>
+<nav th:replace="partials/navbar :: nav"></nav>
+
 <div id="wrapper">
   <main class="container">
     <form th:action="@{|/posts/${post.id}/edit|}" th:method="POST" th:object="${post}">

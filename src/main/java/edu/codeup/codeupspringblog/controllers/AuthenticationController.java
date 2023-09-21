@@ -8,6 +8,6 @@ public class AuthenticationController {
 
     @GetMapping("/login")
     public String showLoginForm() {
-        return "user/login";
+        return "users/login";
     }
 }

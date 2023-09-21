@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <!--<head th:replace="partials/partials :: head('Post Details')"></head>-->
-<head>
+<head th:replace="partials/header :: head">
     <meta charset="UTF-8">
     <title>View</title>
 
 </head>
 <body>
+<nav th:replace="partials/navbar :: nav"></nav>
+
 <div id="wrapper">
     <main class="container">
         <p>Test</p>
