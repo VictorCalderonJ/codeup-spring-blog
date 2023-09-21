@@ -42,16 +42,32 @@ public class PostController {
     }
 
     @PostMapping("/create")
-    public String createPost(@RequestParam("title") String title, @RequestParam("body") String body){
+    public String createPost(@ModelAttribute Post post){
         //Hard coded user
         User hardCodeUser = userDao.findById(2L).get();
 
-        Post newPost = new Post(title, body, hardCodeUser);
+        Post newPost = new Post(
+                post.getTitle(),
+                post.getBody(),
+                hardCodeUser
+        );
         postDao.save(newPost);
         return "redirect:/posts";
     }
 
+    @GetMapping("/{id}/edit")
+    public String editPost(@PathVariable long id, Model model){
+        Post postToEdit = postDao.findById(id).get();
+        model.addAttribute("post", postToEdit);
+        return "posts/edit";
+    }
 
-
-
+    @PostMapping("/{id}/edit")
+    public String insertEdit(@ModelAttribute Post post, @PathVariable long id){
+        Post postToEdit = postDao.findById(id).get();
+        postToEdit.setTitle(post.getTitle());
+        postToEdit.setBody(post.getBody());
+        postDao.save(postToEdit);
+        return "redirect:/posts/"+id;
+    }
 }
